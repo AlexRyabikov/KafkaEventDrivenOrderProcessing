@@ -1,6 +1,29 @@
 import { useEffect, useMemo, useState } from "react";
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:18080";
+function resolveApiBaseUrl() {
+  const configured = import.meta.env.VITE_API_BASE_URL || "http://localhost:18080";
+  if (typeof window === "undefined") {
+    return configured;
+  }
+
+  const uiHost = window.location.hostname;
+  if (!uiHost) {
+    return configured;
+  }
+
+  try {
+    const parsed = new URL(configured);
+    if (parsed.hostname === "localhost" || parsed.hostname === "127.0.0.1") {
+      parsed.hostname = uiHost;
+      return parsed.toString().replace(/\/$/, "");
+    }
+    return configured;
+  } catch {
+    return configured;
+  }
+}
+
+const API_BASE_URL = resolveApiBaseUrl();
 
 const initialForm = {
   customer_email: "demo@example.com",
