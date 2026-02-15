@@ -1,0 +1,118 @@
+:root {
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+  color: #171717;
+  background: radial-gradient(circle at 20% 20%, #ffe7c2 0%, #f7f5f2 55%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.panel {
+  background: #ffffffd9;
+  border: 1px solid #d7d7d7;
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+h1,
+h2 {
+  margin: 0 0 0.75rem;
+}
+
+.meta {
+  font-size: 0.85rem;
+  color: #5c5c5c;
+}
+
+.form {
+  display: grid;
+  gap: 0.75rem;
+}
+
+label {
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+}
+
+input,
+button {
+  font: inherit;
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #bdbdbd;
+}
+
+button {
+  border-color: #2357c8;
+  background: #2357c8;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+th,
+td {
+  text-align: left;
+  border-bottom: 1px solid #e6e6e6;
+  padding: 0.45rem;
+}
+
+.mono {
+  font-family: "IBM Plex Mono", "Consolas", monospace;
+}
+
+.status {
+  display: inline-block;
+  min-width: 90px;
+  text-align: center;
+  padding: 0.2rem 0.45rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.status.new,
+.status.processing {
+  background: #e5edff;
+  color: #1a3d85;
+}
+
+.status.confirmed {
+  background: #dcf5e5;
+  color: #1d6a34;
+}
+
+.status.cancelled {
+  background: #ffe2e2;
+  color: #8a1f1f;
+}
+
+.error {
+  color: #a42020;
+  margin: 0;
+  font-size: 0.9rem;
+}
